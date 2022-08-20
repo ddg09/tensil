@@ -1,0 +1,20 @@
+#!/bin/bash
+
+case "$1" in
+"compile")
+    JAR="/opt/tensil/compiler.jar"
+    ;;
+"emulate")
+    JAR="/opt/tensil/emulator.jar"
+    ;;
+"rtl")
+    JAR="/opt/tensil/rtl.jar"
+    ;;
+*)
+    echo "Usage: tensil compile|emulate|rtl [OPTIONS]"
+
+    exit 1
+    ;;
+esac
+
+java -jar $JAR "${@:2}"
